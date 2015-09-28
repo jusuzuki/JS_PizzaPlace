@@ -4,8 +4,19 @@ var Pizza = function(toppings, size) {
 }
 
 Pizza.prototype.getPrice = function() {
-  var price = this.size + (this.toppings * 0.50);
+  var sizeValue = this.getSizeValue(this.size);
+  var price = sizeValue + (this.toppings * 0.50);
   return price;
+}
+
+Pizza.prototype.getSizeValue = function(size){
+  if (size == "small"){
+    return 7;
+  } else if (size === "medium"){
+    return 13;
+  } else if (size === "large"){
+    return 17;
+  }
 }
 
 $(document).ready(function() {
@@ -17,7 +28,7 @@ $(document).ready(function() {
         toppingsArray[toppings++] = parseInt($(this).val());
       });
 
-    var size = parseInt($('input[name="size"]:checked').val());
+    var size = $('input[name="size"]:checked').val();
     var quantity = parseInt($("input#pizza_quantity").val());
 
     $(".toppings").text(toppings);

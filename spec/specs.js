@@ -1,9 +1,20 @@
-describe('bottlesOfBeer', function() {
-    it("ends the song at 0", function() {
-    expect(bottlesOfBeer(0)).to.equal(" No more bottles of beer on the wall, no more bottles of beer. Go to the store and buy some more, 99 bottles of beer on the wall.");
-    });
+describe('pizza', function() {
+  it("returns the price 7.50 for a small pizza with one topping", function() {
+    var size = "small";
+    var smallPizza = new Pizza(1, size);
+    expect(smallPizza.getPrice()).to.equal(7.50);
+  });
 
-    it("starts singing at number given by user", function() {
-    expect(bottlesOfBeer(7)).to.include("7 bottles of beer on the wall, 7 bottles of beer.");
-    });
+  it("returns the price 14 for a medium pizza with 2 toppings", function() {
+    var size = "medium";
+    var mediumPizza = new Pizza(2, size);
+    expect(mediumPizza.getPrice()).to.equal(14);
+  });
+
+  it("returns the price 19 for a large pizza with 4 toppings", function() {
+    var size = "large";
+    var largePizza = new Pizza(4, size);
+    expect(largePizza.getPrice()).to.equal(19);
+  });
+
 });
